@@ -3,428 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tomohiro | Computer Vision Engineer</title>
-    <meta name="description" content="Portfolio of Tomohiro - Computer Vision & AI Engineer specializing in 3D Reconstruction.">
-    
+    <title>My Portfolio | Creative Developer</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-
-    <style>
-        /* --- CSS Variables & Reset --- */
-        :root {
-            --bg-color: #0f172a;
-            --card-bg: rgba(30, 41, 59, 0.7);
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --accent-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
-            --glass-border: 1px solid rgba(255, 255, 255, 0.1);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
-
-        /* --- Utilities --- */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 3rem;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-        }
-
-        /* --- Header / Navigation --- */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            background: rgba(15, 23, 42, 0.8);
-            border-bottom: var(--glass-border);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-weight: 800;
-            font-size: 1.5rem;
-            letter-spacing: -0.5px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: #fff;
-        }
-
-        /* --- Hero Section --- */
-        #hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .hero-subtitle {
-            color: var(--text-secondary);
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .hero-title {
-            font-size: 5rem;
-            line-height: 1.1;
-            font-weight: 800;
-            margin-bottom: 2rem;
-        }
-
-        .hero-title span {
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-desc {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin-bottom: 3rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 32px;
-            background: var(--accent-gradient);
-            border-radius: 50px;
-            font-weight: 600;
-            transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(6, 182, 212, 0.5);
-        }
-
-        /* --- Scroll Animation Class --- */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* --- Skills Section --- */
-        #skills { padding: 100px 0; }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: #fff;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .tag {
-            padding: 8px 16px;
-            background: rgba(255, 255, 255, 0.05);
-            border: var(--glass-border);
-            border-radius: 8px;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            transition: var(--transition);
-        }
-
-        .tag:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        /* --- Projects Section --- */
-        #projects { padding: 100px 0; }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .project-card {
-            background: var(--card-bg);
-            border: var(--glass-border);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(6, 182, 212, 0.5);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .project-header {
-            margin-bottom: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-
-        .folder-icon {
-            width: 40px;
-            height: 40px;
-            color: #06b6d4;
-        }
-
-        .project-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #fff;
-        }
-
-        .project-desc {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 2rem;
-            flex-grow: 1;
-        }
-
-        .project-tech {
-            display: flex;
-            gap: 15px;
-            font-size: 0.85rem;
-            color: #64748b;
-            font-family: monospace;
-        }
-
-        /* --- Footer --- */
-        footer {
-            padding: 50px 0;
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            border-top: var(--glass-border);
-        }
-
-        /* --- Mobile --- */
-        @media (max-width: 768px) {
-            .hero-title { font-size: 3rem; }
-            .nav-links { display: none; } /* Simplified for demo */
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Tomohiro.</div>
-                <div class="nav-links">
-                    <a href="#about">About</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#projects">Projects</a>
-                    <a href="mailto:your-email@example.com">Contact</a>
-                </div>
+    <header class="header">
+        <div class="container header__inner">
+            <h1 class="logo">Portfolio.</h1>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+                    <li class="nav__item"><a href="#works" class="nav__link">Works</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <section id="hero">
-            <div class="container hero-content">
-                <p class="hero-subtitle reveal">Student / Researcher</p>
-                <h1 class="hero-title reveal">
-                    Digitizing Reality with <br>
-                    <span>Computer Vision.</span>
-                </h1>
-                <p class="hero-desc reveal">
-                    テクスチャレス物体の3次元復元研究および生成AIを活用したアプリケーション開発に取り組んでいます。
-                    数理的な理論と、Docker/Gitを用いたモダンな開発ワークフローを両立します。
+        <section class="hero">
+            <div class="container">
+                <p class="hero__greeting">Hello, I'm a Developer.</p>
+                <h2 class="hero__title">
+                    Code with <span class="text-gradient">Passion</span>,<br>
+                    Design with <span class="text-gradient">Logic</span>.
+                </h2>
+                <p class="hero__description">
+                    技術とデザインの架け橋となり、ユーザーに最高の体験を提供するエンジニアを目指しています。
                 </p>
-                <a href="#projects" class="btn reveal">View Projects</a>
+                <a href="#works" class="btn btn--primary">View My Work</a>
             </div>
         </section>
 
-        <section id="skills">
+        <section id="about" class="section">
             <div class="container">
-                <h2 class="section-title reveal">Technical Stack</h2>
-                <div class="skills-grid reveal">
-                    <article class="skill-category">
-                        <h3>Core & Research</h3>
-                        <div class="skill-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">C++</span>
-                            <span class="tag">PyTorch</span>
-                            <span class="tag">OpenCV</span>
-                            <span class="tag">NeRF / SDF</span>
-                        </div>
-                    </article>
-                    <article class="skill-category">
-                        <h3>Development</h3>
-                        <div class="skill-tags">
-                            <span class="tag">Docker</span>
-                            <span class="tag">Git / GitHub Actions</span>
-                            <span class="tag">Linux Shell</span>
-                            <span class="tag">Flask / FastAPI</span>
-                        </div>
-                    </article>
-                    <article class="skill-category">
-                        <h3>Tools & Creative</h3>
-                        <div class="skill-tags">
-                            <span class="tag">VS Code</span>
-                            <span class="tag">Stable Diffusion</span>
-                            <span class="tag">Runway</span>
-                            <span class="tag">Figma</span>
-                        </div>
-                    </article>
+                <h3 class="section__title">About Me</h3>
+                <p class="section__text">
+                    常に新しい技術トレンドを追いかけ、効率的で保守性の高いコードを書くことに情熱を注いでいます。
+                    単に動くものを作るだけでなく、「なぜその技術を使うのか」を大切にしています。
+                </p>
+            </div>
+        </section>
+
+        <section id="skills" class="section bg-light">
+            <div class="container">
+                <h3 class="section__title">Skills</h3>
+                <div class="grid">
+                    <div class="card">
+                        <h4 class="card__title">HTML/CSS</h4>
+                        <p class="card__text">セマンティックなマークアップ、Sass、モダンなレイアウト（Grid/Flexbox）。</p>
+                    </div>
+                    <div class="card">
+                        <h4 class="card__title">JavaScript</h4>
+                        <p class="card__text">ES6+、非同期処理、DOM操作、React/Vueなどのフレームワーク基礎。</p>
+                    </div>
+                    <div class="card">
+                        <h4 class="card__title">Tools</h4>
+                        <p class="card__text">Git/GitHubでのバージョン管理、VS Code、Figmaでのデザイン確認。</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="projects">
+        <section id="works" class="section">
             <div class="container">
-                <h2 class="section-title reveal">Featured Work</h2>
-                <div class="project-grid">
-                    
-                    <article class="project-card reveal">
-                        <div class="project-header">
-                            <svg class="folder-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
-                            <a href="#" target="_blank"><svg style="width:24px;height:24px;color:#fff" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a>
-                        </div>
-                        <h3 class="project-title">Textureless 3D Reconstruction</h3>
-                        <p class="project-desc">
-                            テクスチャの少ない物体に対し、幾何学的制約とAI（Neural Fields）を用いて高精度な3次元形状を復元する研究プロジェクト。従来のフォトグラメトリ手法が苦手とする領域に挑戦しています。
-                        </p>
-                        <div class="project-tech">
-                            <span>PyTorch</span>
-                            <span>NeRF</span>
-                            <span>SDF</span>
+                <h3 class="section__title">Selected Works</h3>
+                <div class="grid">
+                    <article class="work-card">
+                        <div class="work-card__image-placeholder">Image</div>
+                        <div class="work-card__content">
+                            <h4 class="work-card__title">Project A</h4>
+                            <p class="work-card__desc">ReactとFirebaseを使用したタスク管理アプリ。</p>
+                            <a href="#" class="link-arrow">See Project &rarr;</a>
                         </div>
                     </article>
-
-                    <article class="project-card reveal">
-                        <div class="project-header">
-                            <svg class="folder-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
-                            <a href="#" target="_blank"><svg style="width:24px;height:24px;color:#fff" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a>
-                        </div>
-                        <h3 class="project-title">Image Quality Metrics Tool</h3>
-                        <p class="project-desc">
-                            PSNR, SSIM, LPIPSなどの評価指標を、画像の特定マスク領域に対して一括計算・可視化するCLIツール。実験の効率化と定量評価の信頼性向上のために開発。
-                        </p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>OpenCV</span>
-                            <span>lpips</span>
+                    <article class="work-card">
+                        <div class="work-card__image-placeholder">Image</div>
+                        <div class="work-card__content">
+                            <h4 class="work-card__title">Project B</h4>
+                            <p class="work-card__desc">CSS Gridを駆使したレスポンシブなランディングページ。</p>
+                            <a href="#" class="link-arrow">See Project &rarr;</a>
                         </div>
                     </article>
-
-                    <article class="project-card reveal">
-                        <div class="project-header">
-                            <svg class="folder-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
-                            <a href="#" target="_blank"><svg style="width:24px;height:24px;color:#fff" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a>
-                        </div>
-                        <h3 class="project-title">Generative AI Entertainment</h3>
-                        <p class="project-desc">
-                            「生成AI×エンタメ」をテーマにした映像制作プロジェクト。プロンプトエンジニアリングから一貫性のある動画生成パイプラインの構築までを実施。
-                        </p>
-                        <div class="project-tech">
-                            <span>Stable Diffusion</span>
-                            <span>Runway</span>
-                            <span>Video AI</span>
-                        </div>
-                    </article>
-
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
+    <footer id="contact" class="footer">
         <div class="container">
-            <p>&copy; 2025 Tomohiro. Built with semantic HTML & modern CSS.</p>
-            <div style="margin-top: 10px;">
-                <a href="https://github.com/udtmhr" target="_blank" style="margin: 0 10px; opacity: 0.8;">GitHub</a>
-                <a href="mailto:your-email@example.com" style="margin: 0 10px; opacity: 0.8;">Email</a>
-            </div>
+            <h3 class="footer__title">Get In Touch</h3>
+            <p class="footer__text">興味を持っていただけましたら、ぜひご連絡ください。</p>
+            <a href="mailto:email@example.com" class="btn btn--outline">Contact Me</a>
+            <p class="copyright">&copy; 2024 My Portfolio. All rights reserved.</p>
         </div>
     </footer>
 
-    <script>
-        // Simple Intersection Observer for scroll animations
-        const revealElements = document.querySelectorAll('.reveal');
-
-        const revealOnScroll = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        revealElements.forEach(el => revealOnScroll.observe(el));
-    </script>
 </body>
 </html>
