@@ -1,0 +1,266 @@
+/* -------------------------------------------
+   1. 変数定義 (Design Tokens)
+   色や数値をここで一括管理します。
+------------------------------------------- */
+:root {
+    --color-bg: #0f172a;       /* 深いネイビー（モダンなダークテーマ） */
+    --color-text: #e2e8f0;     /* オフホワイト */
+    --color-text-muted: #94a3b8;
+    --color-primary: #38bdf8;  /* アクセントカラー（シアン系） */
+    --color-secondary: #818cf8; /* グラデーション用 */
+    --color-card-bg: #1e293b;
+    
+    --font-main: 'Poppins', 'Noto Sans JP', sans-serif;
+    
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    
+    --radius-md: 12px;
+}
+
+/* -------------------------------------------
+   2. リセット & 基本設定
+------------------------------------------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    overflow-x: hidden; /* 横スクロール防止 */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s;
+}
+
+ul {
+    list-style: none;
+}
+
+/* 共通クラス: コンテナ（幅制限と中央寄せ） */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+/* -------------------------------------------
+   3. ヘッダー
+------------------------------------------- */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(15, 23, 42, 0.9); /* ガラスのような透過効果 */
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    padding: 1rem 0;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+}
+
+.nav__list {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav__link {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.nav__link:hover {
+    color: var(--color-primary);
+}
+
+/* -------------------------------------------
+   4. ヒーローセクション (アニメーション付き)
+------------------------------------------- */
+.hero {
+    padding: 160px 0 100px;
+    text-align: center;
+}
+
+/* ふわっと浮き上がるアニメーション定義 */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero__greeting {
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.hero__title {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 0.8s ease 0.2s forwards; /* 0.2秒遅延 */
+    opacity: 0; /* アニメーション前は隠す */
+}
+
+/* グラデーションテキスト */
+.text-gradient {
+    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero__description {
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    animation: fadeInUp 0.8s ease 0.4s forwards;
+    opacity: 0;
+}
+
+/* -------------------------------------------
+   5. コンポーネント (ボタン, カード)
+------------------------------------------- */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 0.6s forwards;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3);
+}
+
+.btn--primary {
+    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+    color: #fff;
+}
+
+.btn--outline {
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    opacity: 1; /* フッター用なので即時表示 */
+    animation: none;
+}
+
+/* セクション共通 */
+.section {
+    padding: 80px 0;
+}
+
+.section__title {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+/* グリッドレイアウト */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* レスポンシブ対応の自動Grid */
+    gap: 2rem;
+}
+
+/* カードデザイン */
+.card, .work-card {
+    background-color: var(--color-card-bg);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    transition: transform 0.3s, border-color 0.3s;
+    border: 1px solid transparent;
+}
+
+.card:hover, .work-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primary);
+}
+
+.card__title {
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+}
+
+.work-card {
+    padding: 0;
+    overflow: hidden;
+}
+
+.work-card__image-placeholder {
+    height: 200px;
+    background-color: #334155;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-muted);
+}
+
+.work-card__content {
+    padding: 1.5rem;
+}
+
+.link-arrow {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+/* -------------------------------------------
+   6. フッター
+------------------------------------------- */
+.footer {
+    padding: 100px 0 50px;
+    text-align: center;
+    border-top: 1px solid #1e293b;
+}
+
+.footer__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.footer__text {
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+}
+
+.copyright {
+    margin-top: 4rem;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+/* -------------------------------------------
+   7. レスポンシブ対応 (スマホ向け)
+------------------------------------------- */
+@media (max-width: 768px) {
+    .hero__title {
+        font-size: 2rem;
+    }
+    
+    .nav {
+        display: none; /* 簡易的に隠しています。本来はハンバーガーメニュー推奨 */
+    }
+}
