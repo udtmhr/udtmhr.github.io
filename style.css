@@ -3,19 +3,37 @@
    色や数値をここで一括管理します。
 ------------------------------------------- */
 :root {
-    --color-bg: #0f172a;       /* 深いネイビー（モダンなダークテーマ） */
-    --color-text: #e2e8f0;     /* オフホワイト */
-    --color-text-muted: #94a3b8;
-    --color-primary: #38bdf8;  /* アクセントカラー（シアン系） */
-    --color-secondary: #818cf8; /* グラデーション用 */
-    --color-card-bg: #1e293b;
-    
+    --color-bg: #f0f9ff;
+    /* Alice Blue / Sky 50 */
+    --color-text: #1e293b;
+    /* Slate 800 */
+    --color-text-muted: #64748b;
+    /* Slate 500 */
+    --color-primary: #0ea5e9;
+    /* Sky 500 */
+    --color-secondary: #6366f1;
+    /* Indigo 500 */
+    --color-card-bg: #ffffff;
+    /* White */
+
     --font-main: 'Poppins', 'Noto Sans JP', sans-serif;
-    
+
     --space-md: 2rem;
     --space-lg: 4rem;
-    
+
     --radius-md: 12px;
+}
+
+/* About Section Specifics */
+#about .section__subtitle,
+#about .section__text {
+    text-align: left;
+}
+
+#about .section__subtitle {
+    margin-left: 0;
+    margin-bottom: 1rem;
+    /* Adjust spacing */
 }
 
 /* -------------------------------------------
@@ -32,7 +50,8 @@ body {
     color: var(--color-text);
     font-family: var(--font-main);
     line-height: 1.6;
-    overflow-x: hidden; /* 横スクロール防止 */
+    overflow-x: hidden;
+    /* 横スクロール防止 */
 }
 
 a {
@@ -59,10 +78,12 @@ ul {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgba(15, 23, 42, 0.9); /* ガラスのような透過効果 */
+    background-color: rgba(255, 255, 255, 0.9);
+    /* ガラスのような透過効果 */
     backdrop-filter: blur(10px);
     z-index: 100;
-    padding: 1rem 0;
+    padding: 1.5rem 0;
+    /* padding increased */
 }
 
 .header__inner {
@@ -73,7 +94,8 @@ ul {
 
 .logo {
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    /* font size increased */
     color: var(--color-primary);
 }
 
@@ -83,7 +105,8 @@ ul {
 }
 
 .nav__link {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    /* font size increased */
     font-weight: 600;
 }
 
@@ -94,15 +117,49 @@ ul {
 /* -------------------------------------------
    4. ヒーローセクション (アニメーション付き)
 ------------------------------------------- */
+.top-banner {
+    margin-top: 100px;
+    /* Header height offset */
+    width: 100%;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeInUp 2s ease forwards;
+}
+
+.top-banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 400px;
+    /* Limit height for panorama */
+    object-fit: cover;
+}
+
+/* Remove unused .hero styles or keep for reference,
+   but ensuring #about animates is the priority */
+
+#about {
+    opacity: 0;
+    animation: fadeInUp 1.5s ease 0.3s forwards;
+}
+
 .hero {
-    padding: 160px 0 100px;
+    padding: 60px 0 100px;
+    /* Reduced top padding */
     text-align: center;
 }
 
 /* ふわっと浮き上がるアニメーション定義 */
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .hero__greeting {
@@ -116,14 +173,17 @@ ul {
     font-size: 3rem;
     line-height: 1.2;
     margin-bottom: 1.5rem;
-    animation: fadeInUp 0.8s ease 0.2s forwards; /* 0.2秒遅延 */
-    opacity: 0; /* アニメーション前は隠す */
+    animation: fadeInUp 0.8s ease 0.2s forwards;
+    /* 0.2秒遅延 */
+    opacity: 0;
+    /* アニメーション前は隠す */
 }
 
 /* グラデーションテキスト */
 .text-gradient {
     background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
     -webkit-background-clip: text;
+    background-clip: text;
     color: transparent;
 }
 
@@ -150,7 +210,7 @@ ul {
 
 .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3);
+    box-shadow: 0 10px 25px rgba(56, 189, 248, 0.4);
 }
 
 .btn--primary {
@@ -161,7 +221,8 @@ ul {
 .btn--outline {
     border: 2px solid var(--color-primary);
     color: var(--color-primary);
-    opacity: 1; /* フッター用なので即時表示 */
+    opacity: 1;
+    /* フッター用なので即時表示 */
     animation: none;
 }
 
@@ -170,29 +231,91 @@ ul {
     padding: 80px 0;
 }
 
+.bg-light {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
 .section__title {
     font-size: 2rem;
     margin-bottom: 3rem;
     text-align: center;
 }
 
+.section__title--huge {
+    font-size: 4rem;
+}
+
+#about .section__title {
+    margin-bottom: 0.5rem;
+}
+
+.section__subtitle {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--color-text);
+}
+
 /* グリッドレイアウト */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* レスポンシブ対応の自動Grid */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* レスポンシブ対応の自動Grid */
     gap: 2rem;
 }
 
+/* Horizontal Scroll Layout (Works Section) */
+.horizontal-scroll-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 2rem;
+    padding: 1rem 0.5rem 2rem 0.5rem;
+    /* 下部にスクロールバーと影用の余白 */
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    /* iOS smooth scrolling */
+
+    /* スクロールバーのスタイリング (Firefox) */
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary) var(--color-bg);
+}
+
+/* スクロールバーのスタイリング (Chrome/Safari) */
+.horizontal-scroll-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.horizontal-scroll-container::-webkit-scrollbar-track {
+    background: var(--color-card-bg);
+    border-radius: 4px;
+}
+
+.horizontal-scroll-container::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary);
+    border-radius: 4px;
+}
+
 /* カードデザイン */
-.card, .work-card {
+.card,
+.work-card {
     background-color: var(--color-card-bg);
     padding: 2rem;
     border-radius: var(--radius-md);
-    transition: transform 0.3s, border-color 0.3s;
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
     border: 1px solid transparent;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
-.card:hover, .work-card:hover {
+/* Horizontal Scroll Context for Work Card */
+.horizontal-scroll-container .work-card {
+    flex: 0 0 320px;
+    /* 固定幅 */
+    scroll-snap-align: start;
+}
+
+.card:hover,
+.work-card:hover {
     transform: translateY(-5px);
     border-color: var(--color-primary);
 }
@@ -205,15 +328,43 @@ ul {
 .work-card {
     padding: 0;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .work-card__image-placeholder {
     height: 200px;
-    background-color: #334155;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-text-muted);
+    background-color: var(--color-card-bg);
+    position: relative;
+    overflow: hidden;
+}
+
+.work-card__image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.work-card:hover .work-card__image-placeholder img {
+    transform: scale(1.05);
+}
+
+.work-card__image-placeholder::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+    /* 画像の上に少し暗いオーバーレイをかける */
+    transition: opacity 0.3s;
+}
+
+.work-card:hover .work-card__image-placeholder::after {
+    opacity: 0;
+    /* ホバー時に明るくする */
 }
 
 .work-card__content {
@@ -233,7 +384,7 @@ ul {
 .footer {
     padding: 100px 0 50px;
     text-align: center;
-    border-top: 1px solid #1e293b;
+    border-top: 1px solid rgba(30, 41, 59, 0.1);
 }
 
 .footer__title {
@@ -259,8 +410,9 @@ ul {
     .hero__title {
         font-size: 2rem;
     }
-    
+
     .nav {
-        display: none; /* 簡易的に隠しています。本来はハンバーガーメニュー推奨 */
+        display: none;
+        /* 簡易的に隠しています。本来はハンバーガーメニュー推奨 */
     }
 }

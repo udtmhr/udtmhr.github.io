@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +8,22 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
 
     <header class="header">
         <div class="container header__inner">
-            <h1 class="logo">Portfolio.</h1>
+            <h1 class="logo">Portfolio</h1>
             <nav class="nav">
                 <ul class="nav__list">
                     <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                    <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+                    <li class="nav__item"><a href="#research" class="nav__link">Research</a></li>
                     <li class="nav__item"><a href="#works" class="nav__link">Works</a></li>
+                    <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
                     <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
                 </ul>
             </nav>
@@ -26,70 +31,122 @@
     </header>
 
     <main>
-        <section class="hero">
-            <div class="container">
-                <p class="hero__greeting">Hello, I'm a Developer.</p>
-                <h2 class="hero__title">
-                    Code with <span class="text-gradient">Passion</span>,<br>
-                    Design with <span class="text-gradient">Logic</span>.
-                </h2>
-                <p class="hero__description">
-                    技術とデザインの架け橋となり、ユーザーに最高の体験を提供するエンジニアを目指しています。
-                </p>
-                <a href="#works" class="btn btn--primary">View My Work</a>
-            </div>
-        </section>
+        <div class="top-banner">
+            <img src="images/PXL_20240904_033353230.PANO.jpg" alt="Panorama">
+        </div>
 
         <section id="about" class="section">
             <div class="container">
-                <h3 class="section__title">About Me</h3>
+                <h1 class="section__title section__title--huge"><span class="text-gradient">About Me</span></h1>
+                <div class="section__subtitle">植田 智洋</div>
                 <p class="section__text">
-                    常に新しい技術トレンドを追いかけ、効率的で保守性の高いコードを書くことに情熱を注いでいます。
-                    単に動くものを作るだけでなく、「なぜその技術を使うのか」を大切にしています。
+                    筑波大学大学院エンパワーメント情報学の修士1年<br>
+                    研究活動以外では、ハッカソンへの参加や個人アプリ開発を通じて、技術を実際の課題解決に応用する経験を積んでいます。<br>
+                    「新しい技術への探究心」と「粘り強い実装力」を武器に、社会に価値を提供するエンジニアを目指しています。
                 </p>
             </div>
         </section>
 
-        <section id="skills" class="section bg-light">
+        <section id="research" class="section bg-light">
             <div class="container">
-                <h3 class="section__title">Skills</h3>
-                <div class="grid">
-                    <div class="card">
-                        <h4 class="card__title">HTML/CSS</h4>
-                        <p class="card__text">セマンティックなマークアップ、Sass、モダンなレイアウト（Grid/Flexbox）。</p>
-                    </div>
-                    <div class="card">
-                        <h4 class="card__title">JavaScript</h4>
-                        <p class="card__text">ES6+、非同期処理、DOM操作、React/Vueなどのフレームワーク基礎。</p>
-                    </div>
-                    <div class="card">
-                        <h4 class="card__title">Tools</h4>
-                        <p class="card__text">Git/GitHubでのバージョン管理、VS Code、Figmaでのデザイン確認。</p>
-                    </div>
-                </div>
+                <h1 class="section__title section__title--huge"><span class="text-gradient">Research</span></h1>
+                <p class="section__text">
+                    現在、大学院にて「<strong>テクスチャの少ない物体の3次元形状の復元</strong>」をテーマに研究を行っています。<br>
+                    AIを用いた最新の技術と古典的なアルゴリズムを組み合わせて、より正確な3次元形状の復元を目指しています。
+                </p>
             </div>
         </section>
 
         <section id="works" class="section">
             <div class="container">
-                <h3 class="section__title">Selected Works</h3>
+                <h1 class="section__title section__title--huge"><span class="text-gradient">Selected Works</span></h1>
+                <div class="horizontal-scroll-container">
+                    <article class="work-card">
+                        <div class="work-card__image-placeholder">
+                            <img src="images/niji_collector.png" alt="Niji Collector">
+                        </div>
+                        <div class="work-card__content">
+                            <h4 class="work-card__title">Niji-Collector</h4>
+                            <p class="work-card__desc">にじさんじの情報の自動収集ツール。推し活を効率化するための自動化スクリプト。</p>
+                            <a href="https://github.com/udtmhr/Niji-Collector" class="link-arrow" target="_blank">View
+                                Repository &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="work-card">
+                        <div class="work-card__image-placeholder">
+                            <img src="images/water_app.png" alt="Water Intake App">
+                        </div>
+                        <div class="work-card__content">
+                            <h4 class="work-card__title">Water-intake-wab-App</h4>
+                            <p class="work-card__desc">一日に飲むべき水分量の可視化アプリ。健康管理をサポートするWebアプリケーション。</p>
+                            <a href="https://github.com/udtmhr/Water-intake-wab-App" class="link-arrow"
+                                target="_blank">View Repository &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="work-card">
+                        <div class="work-card__image-placeholder">
+                            <img src="images/focus_blur.png" alt="Focus Blur">
+                        </div>
+                        <div class="work-card__content">
+                            <h4 class="work-card__title">Focus-Blur</h4>
+                            <p class="work-card__desc">姿勢矯正アプリ。AIで姿勢を判断して姿勢が悪くなると画面を強制的にぼかすことで作業を妨げる。</p>
+                            <a href="https://github.com/udtmhr/Focus-Blur" class="link-arrow" target="_blank">View
+                                Repository &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="work-card">
+                        <div class="work-card__image-placeholder">
+                            <img src="images/othello.png" alt="Othello">
+                        </div>
+                        <div class="work-card__content">
+                            <h4 class="work-card__title">Othello</h4>
+                            <p class="work-card__desc">自作のオセロプログラムとオセロAIの作成。アルゴリズムの実装とゲームロジックの研究。</p>
+                            <a href="https://github.com/udtmhr/Othello" class="link-arrow" target="_blank">View
+                                Repository &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="work-card">
+                        <div class="work-card__image-placeholder">
+                            <img src="images/lifegame.png" alt="Lifegame">
+                        </div>
+                        <div class="work-card__content">
+                            <h4 class="work-card__title">lifegame</h4>
+                            <p class="work-card__desc">コンウェイのライフゲームの実装。セルオートマトンのシミュレーション。</p>
+                            <a href="https://github.com/udtmhr/lifegame" class="link-arrow" target="_blank">View
+                                Repository &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="work-card">
+                        <div class="work-card__image-placeholder">
+                            <img src="images/hackathon.png" alt="Hackathon">
+                        </div>
+                        <div class="work-card__content">
+                            <h4 class="work-card__title">hackathon</h4>
+                            <p class="work-card__desc">ハッカソン参加時のプロジェクトリポジトリ。チーム開発の成果物。</p>
+                            <a href="https://github.com/udtmhr/hackathon" class="link-arrow" target="_blank">View
+                                Repository &rarr;</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section bg-light">
+            <div class="container">
+                <h1 class="section__title section__title--huge"><span class="text-gradient">Skills</span></h1>
                 <div class="grid">
-                    <article class="work-card">
-                        <div class="work-card__image-placeholder">Image</div>
-                        <div class="work-card__content">
-                            <h4 class="work-card__title">Project A</h4>
-                            <p class="work-card__desc">ReactとFirebaseを使用したタスク管理アプリ。</p>
-                            <a href="#" class="link-arrow">See Project &rarr;</a>
-                        </div>
-                    </article>
-                    <article class="work-card">
-                        <div class="work-card__image-placeholder">Image</div>
-                        <div class="work-card__content">
-                            <h4 class="work-card__title">Project B</h4>
-                            <p class="work-card__desc">CSS Gridを駆使したレスポンシブなランディングページ。</p>
-                            <a href="#" class="link-arrow">See Project &rarr;</a>
-                        </div>
-                    </article>
+                    <div class="card">
+                        <h4 class="card__title">Languages</h4>
+                        <p class="card__text">Python, JavaScript, HTML/CSS, Java, C++</p>
+                    </div>
+                    <div class="card">
+                        <h4 class="card__title">Development</h4>
+                        <p class="card__text">Web Development, Game Logic, Automation Scripts, AI Basics</p>
+                    </div>
+                    <div class="card">
+                        <h4 class="card__title">Tools</h4>
+                        <p class="card__text">Git/GitHub, VS Code, Linux Environments</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -98,11 +155,12 @@
     <footer id="contact" class="footer">
         <div class="container">
             <h3 class="footer__title">Get In Touch</h3>
-            <p class="footer__text">興味を持っていただけましたら、ぜひご連絡ください。</p>
-            <a href="mailto:email@example.com" class="btn btn--outline">Contact Me</a>
-            <p class="copyright">&copy; 2024 My Portfolio. All rights reserved.</p>
+            <p class="footer__text">Check out my code on GitHub.</p>
+            <a href="https://github.com/udtmhr" class="btn btn--outline" target="_blank">Visit GitHub Profile</a>
+            <p class="copyright">&copy; 2024 udtmhr. All rights reserved.</p>
         </div>
     </footer>
 
 </body>
+
 </html>
