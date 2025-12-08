@@ -74,7 +74,8 @@
                                     <p class="section__text">
                                         「インフラ点検の自動化」に向け、ドローン等で撮影された画像から、模様の少ない（低テクスチャな）構造物でも高精度に3次元モデルを生成する手法を研究しています。<br><br>
                                         最新の<strong>3D Gaussian
-                                            Splatting</strong>をベースに、深度・法線情報やセグメンテーション（Mask）を活用した新たな損失関数を導入することで、従来手法では困難だったコンクリートや白一色の構造物の復元精度向上に取り組んでいます。
+                                            Splatting</strong>をベースに、深度・法線情報やセグメンテーション（Mask）の最新AIとVisual
+                                        Hullという古典的アルゴリズムを組み合わせて、従来手法では困難だったコンクリートや白一色の構造物の復元精度向上に取り組んでいます。
                                     </p>
                                 </div>
                             </li>
@@ -87,7 +88,7 @@
                                             <p>国内のインフラ（橋梁、トンネル等）の老朽化が急速に進む一方、点検業務を担う技術者は減少・高齢化しており、業務の効率化が急務です。</p>
                                         </div>
                                         <div class="carousel-item">
-                                            <h4>解決策</h4>
+                                            <h4>スマート点検と課題</h4>
                                             <p>ドローンや車両を用いた画像解析による「スマート点検」が進んでいますが、撮影時の風の影響や位置ズレにより、過去データとの比較が難しいという課題があります。
                                             </p>
                                         </div>
@@ -106,8 +107,9 @@
                                         しかし、インフラ設備に多い<strong>「低テクスチャ物体（のっぺりとしたコンクリートや白い塗装面）」</strong>は特徴点が極端に少なく、以下の問題が発生します。
                                     </p>
                                     <ul class="carousel-list">
-                                        <li>幾何学的制約が得られず、形状が崩れる。</li>
+                                        <li>画像から得られる情報が少なく、形状が崩れる。</li>
                                         <li>カメラの推定位置（SfM）が狂い、復元全体が破綻する。</li>
+                                        <li>手がかり不足により、物体の表面を定義する点群（点の集まり）がスカスカになる</li>
                                     </ul>
                                 </div>
                             </li>
@@ -119,12 +121,12 @@
                                     </p>
                                     <div class="carousel-item mb-4">
                                         <h4>マルチモーダルな損失関数の導入</h4>
-                                        <p>単なる色の情報のだけでなく、<strong>「深度（Depth）」「法線（Normal）」「マスク（Mask）」</strong>の推定結果を教師データとして利用。<br>
-                                            特にMask Loss（SAM2で生成）を導入し、対象物体の輪郭を明確化させてノイズを抑制します。</p>
+                                        <p>単なる色の情報のだけでなく、<strong>「深度（Depth）」「法線（Normal）」「マスク（Mask）」</strong>の推定結果をデータとして利用。<br>
+                                            これらを追加の情報とすることで、足りない情報を補完する。</p>
                                     </div>
                                     <div class="carousel-item">
                                         <h4>Visual Hullによる初期値の改善</h4>
-                                        <p>SfMの疎な点群に頼らず、シルエット情報から推定した体積（Visual Hull）を用いて初期点群を生成し、収束を安定化させます。</p>
+                                        <p>特徴点による疎な点群に頼らず、シルエット情報から推定した体積（Visual Hull）を用いて初期点群を生成し、ノイズを減らします。</p>
                                     </div>
                                 </div>
                             </li>
@@ -250,7 +252,6 @@
             <h3 class="footer__title">Get In Touch</h3>
             <p class="footer__text">Check out my code on GitHub.</p>
             <a href="https://github.com/udtmhr" class="btn btn--outline" target="_blank">Visit GitHub Profile</a>
-            <p class="copyright">&copy; 2024 udtmhr. All rights reserved.</p>
         </div>
     </footer>
 
