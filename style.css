@@ -630,3 +630,13 @@ ul {
         height: 150px;
     }
 }
+
+.research-overview-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 1.5rem;
+    border-radius: var(--radius-sm);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
